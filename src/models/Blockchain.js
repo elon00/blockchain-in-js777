@@ -84,7 +84,7 @@ class Blockchain {
 
     // check that the parent is actually existent and the advertised height is correct
     const parent = this.blocks[block.parentHash];
-    if (parent === undefined && parent.height + 1 !== block.height) return;
+    if (parent === undefined || parent.height + 1 !== block.height) return;
 
     const isParentMaxHeight = this.maxHeightBlock().hash === parent.hash;
 
